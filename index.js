@@ -3,16 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const autocompleteDropdown = document.getElementById('autocompleteDropdown');
     const repositoriesList = document.getElementById('repositoriesList');
 
-    let debounceTimer;
     const debounceDelay = 400;
+    const REPOS_PER_PAGE = 5;
 
     // Функция для ограничения частоты запросов
     function debounce(func, delay) {
+        let timer; // Теперь timer локальный для каждого вызова debounce
         return function() {
             const context = this;
             const args = arguments;
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => func.apply(context, args), delay);
+            clearTimeout(timer);
+            timer = setTimeout(() => func.apply(context, args), delay);
         };
     }
 
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&per_page=5`);
+            const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&per_page=${REPOS_PER_PAGE}`);
             if (!response.ok) throw new Error('Ошибка запроса к GitHub API');
             const data = await response.json();
             return data.items || [];
