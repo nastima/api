@@ -1,0 +1,125 @@
+/*тело*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/*контейнер общий*/
+.container {
+    max-width: 661px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #C4C4C4;
+}
+
+/*контейнер поиска */
+.search-container {
+    width: 500px;
+    position: relative;
+    margin: 0 auto 45px auto;
+    border: none;
+}
+
+/*поисковая строка*/
+#searchInput {
+    width: 100%;
+    padding: 10px;
+
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    box-sizing: border-box;
+}
+
+/*выпадающий список автодополнения*/
+.autocomplete-dropdown {
+    width: 500px;
+    max-height: 220px;
+
+    overflow-y: auto;
+    border: 2px solid #000000;
+    border-top: none;
+
+    background-color: #E3E3E3;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    display: none;
+}
+
+/*элемент автодополнения*/
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid #000000
+}
+
+/*элемент автодополнения - при наведении*/
+.autocomplete-item:hover {
+    background-color: #65CDF9;
+}
+
+/*последний элемент в выпадающем списке*/
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+/*список репозиториев*/
+.repositories-list {
+    width: 500px;
+    margin: 20px auto;
+}
+
+/*пункты списка*/
+.repository-item {
+    padding: 8px 16px;
+    background-color: #E27BEB;
+
+    cursor: pointer;
+    border: 1px solid #000000;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*кнопка в списке*/
+.delete-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+/*контейнер с инфо в списках*/
+.repository-info {
+    flex-grow: 1;
+}
+
+/*текст в списке(имя, звезда, владелец )*/
+.repository-owner, .repository-stars, .repository-name {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+
